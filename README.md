@@ -2,7 +2,7 @@
 **the foundation for meteor variable validation**
 
 ## Installation
-`meteor add zhaoyao91:validation`
+`meteor add zhaoyao91:validations`
 
 ## Introduction
 This package defines the **validation class**, a **simple schema**, some functions that help **build validation tree** from a schema, and a set of **buit-in validation classes**.
