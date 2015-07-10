@@ -5,7 +5,7 @@
 `meteor add zhaoyao91:validations`
 
 ## Introduction
-This package defines the **validation class**, a **simple schema**, some functions that help **build validation tree** from a schema, and a set of **buit-in validation classes**.
+This package defines the **validation class**, a **simple schema**, some functions that help **build validation tree** from a schema, and a set of **built-in validations**.
 
 ## Validation Class
 Here is a template to write a new validation class:
@@ -61,26 +61,26 @@ Here is a template to write a new validation class:
 Once a validation class is defined, you can just new one and use it to validate your variable.
 
 to integrate it into **validations**:  
- - Validations.add(validationClass)
+ - **Validations.add(validationClass)**
 
 or: 
- - Validations.addByPrototype(prototype)
- - Validations.addByTestfunc(validationName, testFunc(target) => boolean)
+ - **Validations.addByPrototype(prototype)**
+ - **Validations.addByTestfunc(validationName, testFunc(target) => boolean)**
 
 to remove a validation class:
- - Validations.remove(validationName)
+ - **Validations.remove(validationName)**
 
 to get a validation class:
- - Validations.get(validationName) => validationClass
+ - **Validations.get(validationName) => validationClass**
 
 to new a validation by name:
- - Validations.new(validationName, [params], [subValidations]) => validation
+ - **Validations.new(validationName, [params], [subValidations]) => validation**
  
 to get all available validation names in **validations**:
- - Validations.getList() => validationNames
+ - **Validations.getList() => validationNames**
 
 ## Simple Schema
-A simple schema is a plain js object (or string, see below) that is used to build a validation hierachically.
+A simple schema is a plain js object (or string, see below) that is used to build a validation hierarchically.
 
     {
         name: 'validation name',
@@ -89,7 +89,7 @@ A simple schema is a plain js object (or string, see below) that is used to buil
     }
 
 You can parse a simple schema into a validation:
- - Validations.parse(schema) => validation
+ - **Validations.parse(schema) => validation**
 
 To solve the cycle-reference problem, you can define **a batch of schemas**, which is an object with the key to be the name of the schema, and the value to be the simple schema. In this way, a simple schema can be a string, which means a reference to the schema defined in the schemas. For example:
 
@@ -108,12 +108,12 @@ To solve the cycle-reference problem, you can define **a batch of schemas**, whi
     }
 
 You can parse the batch of schemas into a batch of validations:
- - Validations.batchParse(schemas) => validations
+ - **Validations.batchParse(schemas) => validations**
  
 **Note**: Although you can define validations with cycle-reference, you can't test or validate object with cycle-reference. It will lead to a dead lock. I will appreciate any help from you.
 
 ## Built-in Validations
-There are some built-in validations. 
+There are some built-in validations (validation classes). 
 
 ### core validations
  - **and( (need params?)no, (need sub validations?)yes )** - return true if all sub validations return true, else return false.
@@ -170,7 +170,7 @@ Thanks for [validator.js](https://github.com/chriso/validator.js#validators), yo
 
 
 ## Tests
-In the projcect with this package, run `meteor test-packages zhaoyao91:validations`.
+In the project with this package, run `meteor test-packages zhaoyao91:validations`.
 
 ## License (MIT)
 
