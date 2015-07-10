@@ -2,7 +2,7 @@ Package.describe({
     name: 'zhaoyao91:validations',
     version: '1.0.0',
     summary: 'the foundation for meteor variable validation.',
-    git: 'https://github.com/zhaoyao91/meteor-validation',
+    git: 'https://github.com/zhaoyao91/meteor-validations',
     documentation: 'README.md'
 });
 
