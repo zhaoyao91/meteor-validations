@@ -99,3 +99,54 @@ Tinytest.add('optional', function (test) {
         params: ['number']
     });
 });
+
+Tinytest.add('length', function (test) {
+    var v = Validations.new('length', [2]);
+
+    test.equal(v.test('1'), false);
+    test.equal(v.test('12'), true);
+    test.equal(v.test([1,2]), true);
+
+    test.equal(v.validate('1', options), {
+        result: false,
+        name: 'length',
+        params: [2]
+    });
+    test.equal(v.validate('12', options), {
+        result: true,
+        name: 'length',
+        params: [2]
+    });
+    test.equal(v.validate([1,2], options), {
+        result: true,
+        name: 'length',
+        params: [2]
+    });
+
+
+    v = Validations.new('length', [[2,3]]);
+
+    test.equal(v.test('12345'), false);
+    test.equal(v.test([1]), false);
+    test.equal(v.test('12'), true);
+    test.equal(v.test([1,2,3]), true);
+
+    test.equal(v.validate('12345', options), {
+        result: false,
+        name: 'length',
+        params: [[2,3]]
+    });
+    test.equal(v.validate([1], options), {
+        result: false,
+        name: 'length',
+        params: [[2,3]]
+    });test.equal(v.validate('12', options), {
+        result: true,
+        name: 'length',
+        params: [[2,3]]
+    });test.equal(v.validate([1,2,3], options), {
+        result: true,
+        name: 'length',
+        params: [[2,3]]
+    });
+});

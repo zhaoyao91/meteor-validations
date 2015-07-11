@@ -128,6 +128,7 @@ There are some built-in validations (validation classes).
  - **exist(no, no)**- if the target is null or undefined, return false, else return true.
  - **type(only one, no)** - if typeof the target equals the param, return true, else return false.
  - **class(only one, no)** - return target instanceof param
+ - **length(only one, no)** - the param can be a number or an array of numbers. return true if target.length == param or param[0] <= target.length <= param[1], else return false.
  
 ### compare validations
 Each of these validations takes only one param and no sub validations.
@@ -171,6 +172,12 @@ Thanks for [validator.js](https://github.com/chriso/validator.js#validators), yo
 
 ## Tests
 In the project with this package, run `meteor test-packages zhaoyao91:validations`.
+
+## Change Log
+### 1.1.0
+ - add length validation
+
+### 1.0.0
 
 ## License (MIT)
 
